@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Registro from './components/Registro'
+import data from './data/data'
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+        <div>
+        <button className='btn btn-success'>Nuevo</button>
+        </div>
+      {
+          data.map(item => (
+            <div class="card">
+              <div class="card-header">
+                SGI: {item.sgi}
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{item.id}</h5>
+                <p class="card-text">{item.fecha}</p>
+                <p class="card-text">{item.tipo}</p>
+                <p class="card-text">{item.usuario}</p>
+                <p class="card-text">{item.observacion}</p>
+                <a href="#" class="btn btn-primary">Ver foto</a>
+              </div>
+            </div>
+          ))
+
+      }    
+
+      <Registro />
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
